@@ -7,7 +7,7 @@ don't run the code today because a have this error :{
   ]
 }
 
-for run the code :
+for run the code : 
 download expo go 
 clone this repositry 
 run :npm i 
