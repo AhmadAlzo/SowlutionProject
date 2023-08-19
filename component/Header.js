@@ -1,5 +1,5 @@
 
-import { FlatList,ScrollView, Text,StyleSheet,TouchableOpacity} from 'react-native';
+import { FlatList, Text,StyleSheet,TouchableOpacity} from 'react-native';
 
 const categories = [
     { id: 'general', label: 'General' },
@@ -14,59 +14,45 @@ const categories = [
 ];
 
 const Header = ({setCategory,category}) => (
-    <ScrollView
+    <FlatList
+      data={categories}
+      keyExtractor={(item) => item.id}
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.header}
-      style={styles.scroll}
-    >
-      {categories.map((item) => (
-        <TouchableOpacity
-          key={item.id}
-          onPress={() => setCategory(item.id)}
-          style={styles.categoryButton}
-        >
-          <Text
-            style={category === item.id ? styles.activeCategoryText : styles.categoryText}
-          >
-            {item.label}
-          </Text>
+      renderItem={({ item }) => (
+        <TouchableOpacity onPress={() => setCategory(item.id)} style={styles.categoryButton}>
+          <Text style={category === item.id ? styles.activeCategoryText : styles.categoryText}>{item.label}</Text>
         </TouchableOpacity>
-      ))}
-    </ScrollView>
+      )}
+    />
 );
 
 const styles = StyleSheet.create({
-  scroll:{
-    flex:2,
-    maxHeight:"10%",
-    marginTop:3,
-  },
-   header: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    backgroundColor: '#F0F0F0',
-    borderBottomWidth: 1,
-    borderBottomColor: '#DDDDDD',
-    justifyContent:"center",
-    alignItems:"flex-start",
-  },
-  categoryButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: '#EFEFEF',
-    marginRight: 10,
-  },
-  categoryText: {
-    fontSize: 14,
-    color: '#555555',
-  },
-  activeCategoryText: {
-    fontSize: 14,
-    color: 'blue', // Change the color for active category
-    fontWeight: 'bold',
-  },
+    header: {
+        paddingHorizontal: 16,
+        paddingVertical: 10,
+        backgroundColor: '#F0F0F0',
+        borderBottomWidth: 1,
+        borderBottomColor: '#DDDDDD',
+      },
+      categoryButton: {
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        marginRight: 10,
+        borderRadius: 20,
+        backgroundColor: 'white',
+        elevation: 2,
+      },
+      categoryText: {
+        fontSize: 16,
+        color: 'gray',
+      },
+      activeCategoryText: {
+        fontSize: 16,
+        color: 'blue', // Change the color for active category
+        fontWeight: 'bold',
+      },
 });
 
 export default Header;

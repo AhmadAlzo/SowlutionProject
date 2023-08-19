@@ -3,7 +3,7 @@ import { View, Text, Image, FlatList, StatusBar, StyleSheet, RefreshControl  } f
 import Item from './component/Item';
 import Header from './component/Header';
 
-const API_KEY = '9ff01fcb82966681a3e2537bf43a26d4';
+const API_KEY = 'e48f2536996c728083a1fb3b95f082e6';
 const BASE_API_URL = `https://gnews.io/api/v4/top-headlines?`;
 const DEFAULT_CATEGORY = 'general';
 
@@ -43,7 +43,6 @@ const App = () => {
         ref={flatListRef}
         data={data}
         renderItem={renderItem}
-        contentContainerStyle={styles.flat}
         keyExtractor={(item) => item.publishedAt}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -58,9 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F0F0F0',
   },
-  flat:{
-    flex:1,
-  }
+  
 });
 
 
