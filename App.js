@@ -43,6 +43,7 @@ const App = () => {
         ref={flatListRef}
         data={data}
         renderItem={renderItem}
+        contentContainerStyle={styles.flat}
         keyExtractor={(item) => item.publishedAt}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -57,6 +58,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F0F0F0',
   },
+  flat:{
+    flex:5,
+  }
 });
 
 
