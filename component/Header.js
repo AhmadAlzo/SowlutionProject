@@ -39,7 +39,8 @@ const Header = ({setCategory,category}) => (
 const styles = StyleSheet.create({
   scroll:{
     flex:2,
-    maxHeight:"10%"
+    maxHeight:"10%",
+    marginTop:3,
   },
    header: {
     paddingHorizontal: 16,

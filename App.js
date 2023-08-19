@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F0F0',
   },
   flat:{
-    flex:5,
+    flex:1,
   }
 });
 
